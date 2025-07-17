@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
+import 'app/app.dart';
 
 void main() {
-  runApp(const TutApp());
+  runApp(
+      TutApp());
 }
 
-class TutApp extends StatelessWidget {
-  const TutApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp();
-  }
-}
