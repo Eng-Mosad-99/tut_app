@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tut_app_mvvm_clean_arch/presentation/theme_manager.dart';
 
 class TutApp extends StatefulWidget {
   // named constructor
@@ -15,6 +16,8 @@ class TutApp extends StatefulWidget {
 class _TutAppState extends State<TutApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      theme: getApplicationTheme(),
+    );
   }
 }
