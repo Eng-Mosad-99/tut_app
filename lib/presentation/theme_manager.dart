@@ -51,6 +51,21 @@ ThemeData getApplicationTheme() {
     ),
 
     // text theme
+    textTheme: TextTheme(
+      displayLarge: getLightStyle(
+          color: ColorManager.white,
+          fontSize: FontSize.s22), // headline1 --->	displayLarge
+      headlineSmall: getSemiBoldStyle(
+          color: ColorManager.darkGrey,
+          fontSize: FontSize.s16), // headline6 --->	headlineSmall
+      titleMedium: getMediumStyle(
+          color: ColorManager.lightGrey,
+          fontSize: FontSize.s14), // subtitle1	---> titleMedium
+      bodySmall: getRegularStyle(
+          color: ColorManager.grey1), // bodyText1 --->	bodyLarge
+      bodyLarge:
+          getRegularStyle(color: ColorManager.grey), // caption --->	bodySmall
+    ),
 
     // input decoration theme (text form field)
   );
