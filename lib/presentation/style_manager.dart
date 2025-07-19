@@ -1,62 +1,46 @@
-import 'dart:ui';
-import 'package:tut_app_mvvm_clean_arch/presentation/font_manager.dart';
+import 'package:flutter/material.dart';
+import 'font_manager.dart';
 import 'value_manger.dart';
 
 TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
   return TextStyle(
-    color: color,
-    fontWeight: fontWeight,
-    fontSize: fontSize,
-    fontFamily: FontConstants.fontFamily,
-  );
+      fontSize: fontSize,
+      fontFamily: FontConstants.fontFamily,
+      color: color,
+      fontWeight: fontWeight);
 }
 
 // regular style
-TextStyle getLightStyle(
-    {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(
-    fontSize,
-    FontWeightManager.light,
-    color,
-  );
-}
 
-// regular style
 TextStyle getRegularStyle(
     {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(
-    fontSize,
-    FontWeightManager.regular,
-    color,
-  );
+  return _getTextStyle(fontSize, FontWeightManager.regular, color);
 }
 
 // medium style
+
 TextStyle getMediumStyle(
-    {required Color color, double fontSize = FontSize.s12}) {
-  return _getTextStyle(
-    fontSize,
-    FontWeightManager.medium,
-    color,
-  );
+    {double fontSize = FontSize.s12, required Color color}) {
+  return _getTextStyle(fontSize, FontWeightManager.medium, color);
 }
 
-// semiBold style
-TextStyle getSemiBoldStyle(
-    {required Color color, double fontSize = FontSize.s12}) {
-  return _getTextStyle(
-    fontSize,
-    FontWeightManager.semiBold,
-    color,
-  );
+// medium style
+
+TextStyle getLightStyle(
+    {double fontSize = FontSize.s12, required Color color}) {
+  return _getTextStyle(fontSize, FontWeightManager.light, color);
 }
 
 // bold style
-TextStyle getBoldStyle(
-    {required Color color, double fontSize = FontSize.s12}) {
-  return _getTextStyle(
-    fontSize,
-    FontWeightManager.bold,
-    color,
-  );
+
+TextStyle getBoldtStyle(
+    {double fontSize = FontSize.s12, required Color color}) {
+  return _getTextStyle(fontSize, FontWeightManager.bold, color);
+}
+
+// semibold style
+
+TextStyle getSemiBoldStyle(
+    {double fontSize = FontSize.s12, required Color color}) {
+  return _getTextStyle(fontSize, FontWeightManager.semiBold, color);
 }
