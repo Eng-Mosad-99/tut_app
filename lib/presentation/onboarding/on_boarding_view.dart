@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tut_app_mvvm_clean_arch/presentation/resources/font_manager.dart';
 import 'package:tut_app_mvvm_clean_arch/presentation/resources/string_manager.dart';
+import 'package:tut_app_mvvm_clean_arch/presentation/resources/value_manger.dart';
 
 import '../resources/assets_manager.dart';
 import '../resources/color_manager.dart';
@@ -72,4 +74,41 @@ class SliderObject {
     required this.subTitle,
     required this.image,
   });
+}
+
+class OnBoardingPage extends StatelessWidget {
+  const OnBoardingPage(
+    this._sliderObject, {
+    super.key,
+  });
+  final SliderObject _sliderObject;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: AppSize.s40,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(AppPadding.p8),
+          child: Text(
+            _sliderObject.title,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.displayLarge,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(AppPadding.p8),
+          child: Text(
+            _sliderObject.subTitle,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+        ), SizedBox(
+          height: AppSize.s60,
+        ),
+      ],
+    );
+  }
 }
