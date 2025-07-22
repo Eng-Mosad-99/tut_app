@@ -52,9 +52,12 @@ ThemeData getApplicationTheme() {
 
     // text theme
     textTheme: TextTheme(
-      displayLarge: getLightStyle(
-          color: ColorManager.white,
-          fontSize: FontSize.s22), // headline1 --->	displayLarge
+      displayLarge: getSemiBoldStyle(
+          color: ColorManager.darkGrey,
+          fontSize: FontSize.s16), // headline1 --->	displayLarge
+      headlineMedium: getSemiBoldStyle(
+          color: ColorManager.darkGrey,
+          fontSize: FontSize.s14),
       headlineSmall: getSemiBoldStyle(
           color: ColorManager.darkGrey,
           fontSize: FontSize.s16), // headline6 --->	headlineSmall
