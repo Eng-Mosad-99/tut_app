@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tut_app_mvvm_clean_arch/presentation/resources/constants_manager.dart';
 import 'package:tut_app_mvvm_clean_arch/presentation/resources/font_manager.dart';
+import 'package:tut_app_mvvm_clean_arch/presentation/resources/routes_manager.dart';
 import 'package:tut_app_mvvm_clean_arch/presentation/resources/string_manager.dart';
 import 'package:tut_app_mvvm_clean_arch/presentation/resources/value_manger.dart';
 
@@ -70,7 +72,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             Align(
               alignment: Alignment.bottomRight,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, Routes.loginRoute);
+                },
                 child: Text(
                   AppStrings.skip,
                   textAlign: TextAlign.end,
@@ -98,6 +102,16 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               height: AppSize.s20,
               child: SvgPicture.asset(ImageAssets.leftArrowIc),
             ),
+            onTap: () {
+              // go to previous slider
+              _pageController.animateToPage(
+                _getPreviousIndex(),
+                duration: const Duration(
+                  microseconds: AppConstants.animationSliderTime,
+                ),
+                curve: Curves.bounceInOut,
+              );
+            },
           ),
         ),
         // circle indicator
@@ -119,6 +133,15 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               height: AppSize.s20,
               child: SvgPicture.asset(ImageAssets.rightArrowIc),
             ),
+            onTap: () {
+              // go to next slider
+              _pageController.animateToPage(
+                _getNextIndex(),
+                duration: const Duration(
+                    milliseconds: AppConstants.animationSliderTime),
+                curve: Curves.bounceInOut,
+              );
+            },
           ),
         ),
       ],
@@ -131,6 +154,22 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     } else {
       return SvgPicture.asset(ImageAssets.solidCircleIc);
     }
+  }
+
+  int _getPreviousIndex() {
+    int previousIndex = _currentIndex--;
+    if (previousIndex == -1) {
+      previousIndex == _list.length - 1;
+    }
+    return previousIndex;
+  }
+
+  int _getNextIndex() {
+    int nextIndex = _currentIndex++;
+    if (nextIndex == _list.length) {
+      nextIndex == 0;
+    }
+    return nextIndex;
   }
 }
 
